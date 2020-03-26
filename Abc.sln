@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.Core", "Abc.Core\Abc.Core.csproj", "{60778077-2E8A-472A-AF2D-3D6C782CE0A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abc.Core", "Abc.Core\Abc.Core.csproj", "{60778077-2E8A-472A-AF2D-3D6C782CE0A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.Northwind.Entities", "Abc.Northwind.Entities\Abc.Northwind.Entities.csproj", "{7C18F078-38FF-4E5F-BDCE-EBDB02C7E016}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abc.Northwind.Entities", "Abc.Northwind.Entities\Abc.Northwind.Entities.csproj", "{7C18F078-38FF-4E5F-BDCE-EBDB02C7E016}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.Northwind.DataAccess", "Abc.Northwind.DataAccess\Abc.Northwind.DataAccess.csproj", "{01F4D414-D30F-4ABD-A469-CDAA03EF8F01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abc.Northwind.DataAccess", "Abc.Northwind.DataAccess\Abc.Northwind.DataAccess.csproj", "{01F4D414-D30F-4ABD-A469-CDAA03EF8F01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.Northwind.Business", "Abc.Northwind.Business\Abc.Northwind.Business.csproj", "{2BD4834B-5AB1-4147-B57D-9C5A30A2EC76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abc.Northwind.Business", "Abc.Northwind.Business\Abc.Northwind.Business.csproj", "{2BD4834B-5AB1-4147-B57D-9C5A30A2EC76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.Northwind.MvcWebUI", "Asp.Northwind.MvcWebUI\Asp.Northwind.MvcWebUI.csproj", "{312D4E77-53C9-40C2-ACC7-03885DC1D503}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.Northwind.MvcWebUI", "Asp.Northwind.MvcWebUI\Asp.Northwind.MvcWebUI.csproj", "{312D4E77-53C9-40C2-ACC7-03885DC1D503}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.Northwind.WebApi", "Abc.Northwind.WebApi\Abc.Northwind.WebApi.csproj", "{39E88B1D-1C51-4536-9D27-F554CD706D45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{312D4E77-53C9-40C2-ACC7-03885DC1D503}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{312D4E77-53C9-40C2-ACC7-03885DC1D503}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{312D4E77-53C9-40C2-ACC7-03885DC1D503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39E88B1D-1C51-4536-9D27-F554CD706D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39E88B1D-1C51-4536-9D27-F554CD706D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39E88B1D-1C51-4536-9D27-F554CD706D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39E88B1D-1C51-4536-9D27-F554CD706D45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

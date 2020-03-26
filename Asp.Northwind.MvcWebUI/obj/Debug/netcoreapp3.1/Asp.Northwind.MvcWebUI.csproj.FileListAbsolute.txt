@@ -139,3 +139,6 @@ C:\Users\Osman\source\repos\Abc\Asp.Northwind.MvcWebUI\bin\Debug\netcoreapp3.1\r
 C:\Users\Osman\source\repos\Abc\Asp.Northwind.MvcWebUI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Osman\source\repos\Abc\Asp.Northwind.MvcWebUI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Osman\source\repos\Abc\Asp.Northwind.MvcWebUI\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\Osman\source\repos\Abc\Asp.Northwind.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Osman\source\repos\Abc\Asp.Northwind.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Views\Product\KendoGrid.cshtml.g.cs
+C:\Users\Osman\source\repos\Abc\Asp.Northwind.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Views\Product\KendoGridCrud.cshtml.g.cs

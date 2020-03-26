@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Grid";
+    Layout = "_Layout";
+}
+<h1>Kendo Grid</h1>
+
+<div id="example">
+    <div class="container">
+        <h3>Product List</h3>
+        <div id="grid" class="m-3"></div>
+    </div>    
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:60966/api/product",
+                dataType: "json",
+                success: function (data) {
+                    console.log("Data " + data);
+
+                    $("#grid").kendoGrid({
+                        dataSource: {
+                            // data: $.parseJSON(data),
+                            data: data,
+                            schema: {
+                                model: {
+                                    fields: {
+                                        productName: { type: "string" },
+                                        unitPrice: { type: "number" },
+                                        unitsInStock: { type: "number" }
+                                    }
+                                }
+                            } 
+                        },
+                        pageSize: 20,
+                        height: 550,
+                        scrollable: true,
+                        sortable: true,
+                        filterable: true,
+                        pageable: {
+                            input: true,
+                            numeric: false
+                        },
+                        editable: {
+                            mode: "popup",
+                            createAt: "top"
+                        },
+                        toolbar: ["create"],
+                        columns: [
+                            { field: "productName", title: "Product Name", width: "200px" },
+                            { field: "unitPrice", title: "Unit Price", format: "{0:c}", width: "130px" },
+                            { field: "unitsInStock", title: "Units In Stock", width: "130px" },
+                            { command: ["edit", "destroy"], title: "Settings", width: "100px" }
+                        ]
+                    });
+                }
+            })
+
+        });
+    </script>
+
+</div>
+

@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewData["Title"] = "KendoGridCrud";
+    Layout = "_Layout";
+}
+
+<h1>KendoGridCrud</h1>
+
+<div class="container">
+    <div class="container">
+        <h3>Northwind Database Product List</h3>
+        <!-- gridimizi olusturacagimiz div e id verdik (id="grid") -->
+        <div id="grid"></div>
+    </div>
+
+    <div data-bind="text: person.name"></div>
+
+    <div id="view">
+        <input data-bind="value: name" />
+        <button data-bind="click: displayGreeting">Display Greeting</button>
+    </div>
+
+    <script>
+        var viewModel2 = kendo.observable({
+            person: {
+                name: "John Doe"
+            }
+        });
+        kendo.bind($("div"), viewModel2);
+
+        var viewModel = kendo.observable({
+            name: "John Doe",
+            displayGreeting: function () {
+                var name = this.get("name");
+                alert("Hello, " + name + "!!!");
+            }
+        });
+        kendo.bind($("#view"), viewModel);
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // webapi min base url i : "http://localhost:60966/api/"
+            var myApiBaseUrl = "http://localhost:60966/api/",
+
+                // Grid imiz icin yeni bir dataSource olusturuyoruz
+                dataSource = new kendo.data.DataSource({
+                    transport: {
+                        // read ile product listemizi cekiyoruz
+                        read: {
+                            url: myApiBaseUrl + "product", // "http://localhost:60966/api/product" adresinden product listesini istedik
+                            type: "get",
+                            contentType: "application/json",
+                            dataType: "json" // json formatinda istiyoruz
+                        },
+                        //create: {
+                        //    url: myApiBaseUrl + "product",
+                        //    type: "post",
+                        //    contentType: "application/json",
+                        //    dataType: "json"
+                        //},
+                        create: function (options) {
+                            $.ajax({
+                                url: myApiBaseUrl + "product",
+                                dataType: "json",
+                                contentType: "application/json",
+                                type: "post", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                                // send the created data items as the "models" service parameter encoded in JSON                            ,
+                                data: kendo.stringify(options),
+                                success: function (result) {
+                                    // notify the data source that the request succeeded
+                                    options.success(result);
+                                },
+                                error: function (result) {
+                                    // notify the data source that the request failed
+                                    options.error(result);
+                                }
+                            });
+                        },
+                        destroy: {
+                            url: myApiBaseUrl + "product",
+                            type: "delete",
+                            contentType: "application/json",
+                            dataType: "json"
+                        },
+                        //parameterMap: function (options, operation) {
+                        //    if (operation !== "read" && options) {
+                        //        return kendo.stringify(options);
+                        //    }
+                        //}
+                    },
+                    batch: true,
+                    pageSize: 20, // grid icinde listelenecek eleman sayisi
+                    schema: {
+                        model: {
+                            id: "productId",
+                            fields: {
+                                productId: { type: "number", editable: false, nullable: true },
+                                productName: { type: "string", validation: { required: true } },
+                                categoryId: { type: "number", validation: { required: true } },
+                                unitPrice: { type: "number", validation: { required: true, min: 1 } },
+                                unitsInStock: { type: "number", validation: { required: true, min: 0 } },
+                            }
+                        }
+                    }
+                });
+
+            // id="grid" olan div imizin icine bir kendo grid olusturuyoruz
+            $("#grid").kendoGrid({
+                dataSource: dataSource, // grid imizin datasource u
+                pageable: true, // sayfalanabilir olsun mu (evet)
+                height: 550, // grid imizin yuksekligi
+                toolbar: ["create"], // Add New button u
+                columns: [
+                    { field: "productName", title: "Product Name", width: "180px" },
+                    { field: "categoryId", title: "Category Id", width: "120px" },
+                    { field: "unitPrice", title: "Unit Price", format: "{0:c}", width: "120px" },
+                    { field: "unitsInStock", title: "Units In Stock", width: "120px" },
+                    { command: ["edit", "destroy"], title: "Settings", width: "120px" }
+                ],
+                editable: "popup" // ekleme veya guncelleme yapacagimiz zaman karsimiza popup acilir
+            });
+        });
+
+    </script>
+
+</div>
+
